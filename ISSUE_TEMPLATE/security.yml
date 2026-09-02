@@ -1,0 +1,132 @@
+
+name: Security / Privacy Engineering Task
+description: Track non-confidential security hardening, threat-model, privacy, or control work.
+title: "[SECURITY] "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not use this Issue form to disclose an exploitable vulnerability,
+        active secret, private key, or sensitive attack details.
+
+        Vulnerabilities must be reported using the private process defined in SECURITY.md.
+
+        This form is intended for planned security engineering work such as
+        threat-model updates, hardening, control implementation, security testing,
+        or privacy review.
+
+  - type: dropdown
+    id: work_type
+    attributes:
+      label: Security Work Type
+      options:
+        - Threat-model update
+        - Security control implementation
+        - Privacy / unlinkability review
+        - Replay-resistance hardening
+        - Key-management hardening
+        - Registry integrity / trust hardening
+        - API / transport security
+        - Dependency / supply-chain security
+        - Container / platform hardening
+        - Security testing
+        - Logging / data-minimisation review
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Primary Component
+      options:
+        - Architecture / Governance
+        - CRS-ASC Core
+        - Issuer Service
+        - Registry Service
+        - Holder Wallet
+        - Verifier Application
+        - Infrastructure / Platform
+        - Cross-component / Integration
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Security / Privacy Objective
+      description: Describe the security property, risk reduction, or control outcome required.
+    validations:
+      required: true
+
+  - type: textarea
+    id: threat
+    attributes:
+      label: Related Threat(s)
+      description: Reference the PFI Threat Model IDs where possible, such as T1-T13.
+      placeholder: T4 - replayed proof; T9 - manipulated Registry snapshot/version.
+    validations:
+      required: true
+
+  - type: textarea
+    id: control
+    attributes:
+      label: Proposed / Affected Control(s)
+      description: Reference existing control IDs where possible, such as C1-C20, or describe the proposed control.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: security_areas
+    attributes:
+      label: Security Areas Affected
+      options:
+        - label: Holder key custody
+        - label: Issuer signing key / trust anchor
+        - label: Attestation validation
+        - label: Registry integrity / versioning
+        - label: Challenge freshness / replay resistance
+        - label: CRS-ASC proof generation / verification
+        - label: Privacy / unlinkability
+        - label: HTTPS/TLS / API protection
+        - label: Logging / data minimisation
+        - label: Dependency / supply-chain security
+        - label: Container / infrastructure security
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Security Acceptance Criteria
+      description: Define measurable evidence required to consider the task complete.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: testing
+    attributes:
+      label: Security Validation / Test Plan
+      description: Define negative tests, misuse cases, static analysis, integration testing, or other security evidence required.
+    validations:
+      required: true
+
+  - type: textarea
+    id: documentation
+    attributes:
+      label: Required Documentation Updates
+      description: Identify Threat Model, SECURITY.md, ADR, architecture diagram, test evidence, runbook, or other documentation changes.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confidentiality
+    attributes:
+      label: Confidentiality Check
+      options:
+        - label: This is planned/non-confidential security engineering work and does not disclose an exploitable vulnerability.
+          required: true
+        - label: This Issue contains no active secrets, private keys, real identity data, or sensitive exploit details.
+          required: true

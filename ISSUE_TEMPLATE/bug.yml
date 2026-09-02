@@ -1,0 +1,131 @@
+name: Bug Report
+description: Report an unexpected behaviour, defect, or regression in a PFI component.
+title: "[BUG] "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for reproducible defects.
+
+        Do not place active secrets, private keys, real identity data, or sensitive
+        vulnerability/exploit details in an Issue.
+
+        Security vulnerabilities should follow the reporting process in SECURITY.md.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Bug Summary
+      description: Provide a concise description of the problem.
+      placeholder: What is failing or behaving unexpectedly?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      options:
+        - CRS-ASC Core
+        - Issuer Service
+        - Registry Service
+        - Holder Wallet
+        - Verifier Application
+        - Infrastructure / Platform
+        - Architecture / Documentation
+        - Integration / End-to-End Flow
+        - Unknown
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behaviour
+      description: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behaviour
+      description: What happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Provide the smallest reliable reproduction sequence.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Identify the relevant development/test environment and versions.
+      placeholder: |
+        Environment: local / development / test / demo
+        Commit or version:
+        OS:
+        Container/image version:
+        Other relevant dependencies:
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Operational Severity
+      description: Choose based on impact to the prototype or development workflow.
+      options:
+        - Low - minor issue or workaround available
+        - Medium - functionality degraded
+        - High - core workflow blocked or significant regression
+        - Critical - prototype unusable or security control materially affected
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / Logs
+      description: Include sanitised logs, screenshots, or error output. Remove secrets and personal information.
+      placeholder: Paste sanitised evidence here.
+
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: Potential Impact
+      options:
+        - label: Cryptographic behaviour
+        - label: Key handling
+        - label: Issuer trust / attestation validation
+        - label: Registry state / versioning
+        - label: Challenge / replay resistance
+        - label: Privacy / unlinkability
+        - label: API / network behaviour
+        - label: Logging / data exposure
+        - label: No security/privacy impact identified
+
+  - type: textarea
+    id: regression
+    attributes:
+      label: Regression Information
+      description: If known, identify when the defect was introduced or the last known working version.
+
+  - type: checkboxes
+    id: safe_content
+    attributes:
+      label: Submission Safety Check
+      options:
+        - label: This Issue contains no secrets, private keys, real identity data, or sensitive vulnerability/exploit details.
+          required: true

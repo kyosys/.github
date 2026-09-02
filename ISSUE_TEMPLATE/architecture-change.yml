@@ -1,0 +1,125 @@
+name: Architecture / Design Change
+description: Propose a change to approved PFI architecture, interfaces, trust boundaries, or technical decisions.
+title: "[ARCH] "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form before implementation when a proposed change affects approved
+        architecture or a significant technical decision.
+
+        Significant decisions may require an Architecture Decision Record (ADR).
+
+  - type: textarea
+    id: current_state
+    attributes:
+      label: Current Architecture / Decision
+      description: Describe the currently approved design or decision being changed.
+      placeholder: Reference the relevant diagram, ADR, API contract, or architectural rule.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed Change
+      description: Describe the proposed architecture/design change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Explain why the current design is insufficient and why this change is preferred.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: artefacts
+    attributes:
+      label: Affected Architecture Artefacts
+      options:
+        - label: System Context Diagram
+        - label: Container Diagram
+        - label: Credential Issuance Sequence
+        - label: Age Verification Sequence
+        - label: Trust Boundary / Data Flow Diagram
+        - label: Threat Model
+        - label: Deployment Diagram
+        - label: Standards Alignment
+        - label: API / Message Contract
+        - label: Architecture Decision Record (ADR)
+        - label: Repository / development governance
+        - label: Other
+
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Security / Trust Impact
+      options:
+        - label: Changes a trust boundary
+        - label: Changes Holder key handling
+        - label: Changes Issuer signing / trust-anchor behaviour
+        - label: Changes Registry validation or state/versioning
+        - label: Changes challenge / replay-resistance behaviour
+        - label: Changes proof generation / verification
+        - label: Changes data classification or retention
+        - label: Changes external network/API exposure
+        - label: Changes logging/telemetry
+        - label: No material security/trust impact identified
+
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy / Unlinkability Impact
+      description: Explain whether the change affects data minimisation, anonymity-set behaviour, Holder unlinkability, or Verifier visibility.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Record credible alternatives and why they were not selected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: consequences
+    attributes:
+      label: Expected Consequences / Trade-offs
+      description: Describe implementation, security, performance, integration, operational, or maintenance consequences.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: adr_required
+    attributes:
+      label: ADR Requirement
+      options:
+        - ADR required - significant architectural decision
+        - ADR update required - existing decision changes
+        - ADR likely not required - explain below
+        - Unsure - architecture review required
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation / Testing Required
+      description: Define how the proposed design will be validated before acceptance.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: implementation_gate
+    attributes:
+      label: Implementation Gate
+      options:
+        - label: Implementation will not begin until this architecture/design change has been reviewed and accepted.
+          required: true
+        - label: This Issue contains no secrets, private keys, real identity data, or sensitive vulnerability details.
+          required: true

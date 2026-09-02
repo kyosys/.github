@@ -1,0 +1,124 @@
+name: Feature / Engineering Task
+description: Propose a new capability or implementation task for the PFI project.
+title: "[FEATURE] "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for new PFI functionality or a defined engineering task.
+
+        Before implementation begins, identify any architecture, security, privacy,
+        interface, testing, and documentation impact.
+
+  - type: textarea
+    id: requirement
+    attributes:
+      label: Requirement / Problem Statement
+      description: What capability is required, or what problem must be solved?
+      placeholder: Describe the requirement clearly and avoid prescribing implementation unless already approved.
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected Outcome
+      description: Describe the expected result from a user, system, or engineering perspective.
+      placeholder: What should be true when this work is complete?
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Provide testable criteria that define completion.
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Primary Component / Workstream
+      options:
+        - Architecture / Governance
+        - CRS-ASC Core
+        - Issuer Service
+        - Registry Service
+        - Holder Wallet
+        - Verifier Application
+        - Infrastructure / Platform
+        - Testing / Validation
+        - Documentation
+        - Cross-component / Integration
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: architecture_impact
+    attributes:
+      label: Architecture / Design Impact
+      description: Select all artefacts that may require review or update.
+      options:
+        - label: System Context Diagram
+        - label: Container Diagram
+        - label: Credential Issuance Sequence
+        - label: Age Verification Sequence
+        - label: Trust Boundary / Data Flow Diagram
+        - label: Threat Model
+        - label: Deployment Diagram
+        - label: Standards Alignment
+        - label: API / Message Contract
+        - label: Architecture Decision Record (ADR)
+        - label: No architecture impact identified
+
+  - type: textarea
+    id: security
+    attributes:
+      label: Security / Privacy Considerations
+      description: Identify any trust-boundary, key-handling, privacy, replay, Registry, logging, or data-handling implications.
+      placeholder: Describe known security/privacy impact, or state why none is expected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: testing
+    attributes:
+      label: Testing Requirements
+      description: Define the evidence required to demonstrate that the change works correctly and securely.
+      placeholder: Unit, integration, negative, replay, invalid-proof, invalid-attestation, manual validation, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: documentation
+    attributes:
+      label: Documentation Requirements
+      description: Identify documentation that must be created or updated before/with implementation.
+      placeholder: README, architecture diagram, ADR, API contract, test evidence, runbook, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies / Blockers
+      description: Record prerequisite work, external dependencies, or known blockers.
+      placeholder: None, or list the relevant Issue / repository / decision.
+
+  - type: checkboxes
+    id: readiness
+    attributes:
+      label: Ready for Design / Development
+      options:
+        - label: The requirement and acceptance criteria are sufficiently defined.
+          required: true
+        - label: I have considered whether architecture/security review is required.
+          required: true
+        - label: This Issue contains no secrets, private keys, real identity data, or sensitive vulnerability details.
+          required: true
